@@ -128,6 +128,4 @@ int main()
 	
 	_JUNK_BLOCK(jmp_label20)
 	return 0;
-	
-	_JUNK_BLOCK(jmp_label21)
 }
