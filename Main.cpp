@@ -1,23 +1,38 @@
-#include <iostream>
 #include <Windows.h>
 #include <TlHelp32.h>
+// Junk code to make injector undetected
+#include "JunkCode.h"
 
-// Change "MY_DLL_NAME.dll" to your dll name
-#define DLL_NAME "MY_DLL_NAME.dll"
+#define DLL_NAME "curium.dll"
 
 // And you need:
 // 1. change all bytes(0x00, 0x01, 0x03....) in define "JUNKS" to random bytes
 // 2. change size this block by adding new bytes
 #define JUNKS \
-__asm _emit 0x00 \
-__asm _emit 0x01 \
-__asm _emit 0x03 \
-__asm _emit 0x04 \
-__asm _emit 0x05 \
-__asm _emit 0x06 \
+__asm _emit 0x99 \
+__asm _emit 0x62 \
+__asm _emit 0x97 \
+__asm _emit 0x78 \
+__asm _emit 0x43 \
+__asm _emit 0x40 \
+__asm _emit 0x44 \
+__asm _emit 0x70 \
+__asm _emit 0x57 \
+__asm _emit 0x70 \
+__asm _emit 0x77 \
+__asm _emit 0x65 \
+__asm _emit 0x44 \
+__asm _emit 0x70 \
+__asm _emit 0x27 \
+__asm _emit 0x16 \
+__asm _emit 0x10 \
+__asm _emit 0x69 \
+__asm _emit 0x13 \
+__asm _emit 0x32 \
+__asm _emit 0x52 \
+__asm _emit 0x78 \
+__asm _emit 0x37 \
 __asm _emit 0x07 \
-__asm _emit 0x08 \
-__asm _emit 0x09 \
 
 
 // Don't change this!
@@ -77,15 +92,35 @@ int main()
 	dwProcess = Process("csgo.exe");
 	
 	_JUNK_BLOCK(jmp_label15)
+	zPpw();
+	JFM();
+	ILa();
+	LMT();
+	njt();
 	HANDLE hProcess = OpenProcess(PROCESS_CREATE_THREAD | PROCESS_QUERY_INFORMATION | PROCESS_VM_READ | PROCESS_VM_WRITE | PROCESS_VM_OPERATION, FALSE, dwProcess);
 	
 	_JUNK_BLOCK(jmp_label16)
+	iJN();
+	yGF();
+	sgDK();
+	WMqx();
+	zFn();
 	LPVOID allocatedMem = VirtualAllocEx(hProcess, NULL, sizeof(myDLL), MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
 	
 	_JUNK_BLOCK(jmp_label17)
+	jksB();
+	SRH();
+	xIO();
+	mgVE();
+	iiL();
 	WriteProcessMemory(hProcess, allocatedMem, myDLL, sizeof(myDLL), NULL);
 	
 	_JUNK_BLOCK(jmp_label18)
+	dUD();
+	ecS();
+	Ifn();
+	jCMS();
+	XMFu();
 	CreateRemoteThread(hProcess, 0, 0, (LPTHREAD_START_ROUTINE)LoadLibrary, allocatedMem, 0, 0);
 	
 	_JUNK_BLOCK(jmp_label19)
