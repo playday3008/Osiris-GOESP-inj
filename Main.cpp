@@ -117,35 +117,35 @@ int main()
 	dwProcess = Process("csgo.exe");
 	
 	_JUNK_BLOCK(jmp_label15)
-	zPpw();
-	JFM();
-	ILa();
-	LMT();
-	njt();
+	NGSm();
+	LyX();
+	XBV();
+	lzi();
+	whfP();
 	HANDLE hProcess = OpenProcess(PROCESS_CREATE_THREAD | PROCESS_QUERY_INFORMATION | PROCESS_VM_READ | PROCESS_VM_WRITE | PROCESS_VM_OPERATION, FALSE, dwProcess);
 	
 	_JUNK_BLOCK(jmp_label16)
-	iJN();
-	yGF();
-	sgDK();
-	WMqx();
-	zFn();
+	JiWn();
+	XUZ();
+	hVMX();
+	OBXV();
+	YAg();
 	LPVOID allocatedMem = VirtualAllocEx(hProcess, NULL, sizeof(myDLL), MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
 	
 	_JUNK_BLOCK(jmp_label17)
-	jksB();
-	SRH();
-	xIO();
-	mgVE();
-	iiL();
+	szY();
+	LwHL();
+	kEEF();
+	zuL();
+	aSMt();
 	WriteProcessMemory(hProcess, allocatedMem, myDLL, sizeof(myDLL), NULL);
 	
 	_JUNK_BLOCK(jmp_label18)
-	dUD();
-	ecS();
-	Ifn();
-	jCMS();
-	XMFu();
+	uPQu();
+	NHc();
+	peI();
+	uZn();
+	HCND();
 	CreateRemoteThread(hProcess, 0, 0, (LPTHREAD_START_ROUTINE)LoadLibrary, allocatedMem, 0, 0);
 	
 	_JUNK_BLOCK(jmp_label19)
