@@ -1,0 +1,31 @@
+name: C/C++ CI
+
+on: [pull_request, push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup MSBuild.exe
+      uses: warrenbuckley/Setup-MSBuild@v1
+    - name: MSBuild Osiris
+      working-directory: src/Osiris-inj
+      run: msbuild Osiris-inj.vcxproj /p:Configuration=Release /p:VisualStudioVersion=16.0 /v:m
+    - name: ls
+      run: ls
+    - name: MSBuild GOESP
+      working-directory: src/GOESP-inj
+      run: msbuild GOESP-inj.vcxproj /p:Configuration=Release /p:VisualStudioVersion=16.0 /v:m
+    - name: ls
+      run: ls
+    - uses: actions/upload-artifact@v1
+      with:
+        name: Release Osiris
+        path: Osiris-GOESP-inj/src/Release/Osiris-inj.exe
+    - uses: actions/upload-artifact@v1
+      with:
+        name: Release GOESP
+        path: Osiris-GOESP-inj/src/Release/GOESP-inj.exe
