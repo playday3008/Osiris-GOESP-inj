@@ -3,7 +3,7 @@
 // Junk code to make injector undetected
 #include "JunkCode.h"
 
-#define DLL_NAME "curium.dll"
+#define DLL_NAME "GOESP.dll"
 
 // And you need:
 // 1. change all bytes(0x00, 0x01, 0x03....) in define "JUNKS" to random bytes
