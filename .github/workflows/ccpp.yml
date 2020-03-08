@@ -24,8 +24,8 @@ jobs:
     - uses: actions/upload-artifact@v1
       with:
         name: Release Osiris
-        path: Osiris-GOESP-inj/src/Release/Osiris-inj.exe
+        path: src/Release/Osiris-inj.exe
     - uses: actions/upload-artifact@v1
       with:
         name: Release GOESP
-        path: Osiris-GOESP-inj/src/Release/GOESP-inj.exe
+        path: src/Release/GOESP-inj.exe
