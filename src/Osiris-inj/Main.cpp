@@ -170,16 +170,27 @@ DWORD Process(char* ProcessName)
 int main()
 {
 	std::cout << "   ____       _      _         __   __________  ___________ ____ " << std::endl;
+	Sleep(50);
 	std::cout << "  / __ \\_____(_)____(_)____   / /  / ____/ __ \\/ ____/ ___// __ \\" << std::endl;
+	Sleep(50);
 	std::cout << " / / / / ___/ / ___/ / ___/  / /  / / __/ / / / __/  \\__ \\/ /_/ /" << std::endl;
+	Sleep(50);
 	std::cout << "/ /_/ (__  ) / /  / (__  )  / /  / /_/ / /_/ / /___ ___/ / ____/ " << std::endl;
+	Sleep(50);
 	std::cout << "\\____/____/_/_/  /_/____/  / /   \\____/\\____/_____//____/_/      " << std::endl;
+	Sleep(50);
 	std::cout << "    ____  __            __///                                    " << std::endl;
+	Sleep(50);
 	std::cout << "   / __ \\/ /___ ___  __/ __ \\____ ___  __                        " << std::endl;
+	Sleep(50);
 	std::cout << "  / /_/ / / __ `/ / / / / / / __ `/ / / /                        " << std::endl;
+	Sleep(50);
 	std::cout << " / ____/ / /_/ / /_/ / /_/ / /_/ / /_/ /                         " << std::endl;
+	Sleep(50);
 	std::cout << "/_/   /_/\\__,_/\\__, /_____/\\__,_/\\__, /                          " << std::endl;
+	Sleep(50);
 	std::cout << "              /____/            /____/                           " << std::endl << std::endl;
+	Sleep(2000);
 	_JUNK_BLOCK(jmp_label11)
 	DWORD dwProcess;
 	
