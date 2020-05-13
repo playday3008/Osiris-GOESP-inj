@@ -15,5 +15,8 @@
     <ClInclude Include="JunkCode.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="JunkDef.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
