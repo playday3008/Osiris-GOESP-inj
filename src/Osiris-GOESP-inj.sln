@@ -9,11 +9,16 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GOESP-inj", "GOESP-inj\GOES
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0F6DAB8-8214-4253-A6FA-88A39ED035C5}.Debug|x86.ActiveCfg = Debug|Win32
+		{A0F6DAB8-8214-4253-A6FA-88A39ED035C5}.Debug|x86.Build.0 = Debug|Win32
 		{A0F6DAB8-8214-4253-A6FA-88A39ED035C5}.Release|x86.ActiveCfg = Release|Win32
 		{A0F6DAB8-8214-4253-A6FA-88A39ED035C5}.Release|x86.Build.0 = Release|Win32
+		{5F905862-E57B-4361-9E65-EC9E8E6CD3C3}.Debug|x86.ActiveCfg = Debug|Win32
+		{5F905862-E57B-4361-9E65-EC9E8E6CD3C3}.Debug|x86.Build.0 = Debug|Win32
 		{5F905862-E57B-4361-9E65-EC9E8E6CD3C3}.Release|x86.ActiveCfg = Release|Win32
 		{5F905862-E57B-4361-9E65-EC9E8E6CD3C3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
