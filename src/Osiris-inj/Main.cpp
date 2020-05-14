@@ -83,7 +83,9 @@ int main()
 	std::cout << "/_/   /_/\\__,_/\\__, /_____/\\__,_/\\__, /                          " << std::endl;
 	Sleep(50);
 	std::cout << "              /____/            /____/                           " << std::endl << std::endl;
-	Sleep(2000);
+	Sleep(50);
+	std::cout << "Rename your DLL to: " << DLL_NAME << std::endl;
+	Sleep(4000);
 	_JUNK_BLOCK(jmp_label11)
 	DWORD dwProcess;
 	
