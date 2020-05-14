@@ -7,7 +7,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A0F6DAB8-8214-4253-A6FA-88A39ED035C5}</ProjectGuid>
+    <ProjectGuid>{5F905862-E57B-4361-9E65-EC9E8E6CD3C3}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>GOESP-inj</ProjectName>
