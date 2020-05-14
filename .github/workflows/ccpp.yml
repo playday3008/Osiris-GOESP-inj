@@ -11,12 +11,22 @@ jobs:
     - uses: actions/checkout@v2
     - name: Setup MSBuild.exe
       uses: warrenbuckley/Setup-MSBuild@v1
-    - name: MSBuild Osiris
+    - name: Get some random
+      run: |
+            cd src
+            Remove-Item -Path GOESP-inj\JunkDef.h
+            Remove-Item -Path Osiris-inj\JunkDef.h
+            & '.\__asm_emit generator.exe' (Get-Random -Minimum 150 -Maximum 500) 1
+            Move-Item -Path junk.h -Destination GOESP-inj\JunkDef.h
+            & '.\__asm_emit generator.exe' (Get-Random -Minimum 150 -Maximum 500) 1
+            Move-Item -Path junk.h -Destination Osiris-inj\JunkDef.h
+      shell: pwsh
+    - name: MSBuild Osiris-inj
       working-directory: src/Osiris-inj
       run: msbuild Osiris-inj.vcxproj /p:Configuration=Release /p:VisualStudioVersion=16.0 /v:m
     - name: ls
       run: ls
-    - name: MSBuild GOESP
+    - name: MSBuild GOESP-inj
       working-directory: src/GOESP-inj
       run: msbuild GOESP-inj.vcxproj /p:Configuration=Release /p:VisualStudioVersion=16.0 /v:m
     - name: ls
