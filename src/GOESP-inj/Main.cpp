@@ -3,6 +3,7 @@
 // Junk code to make injector undetected
 #include "JunkCode.h"
 #include <iostream>
+#include <filesystem>
 
 #include "JunkDef.h"
 
@@ -84,21 +85,33 @@ int main()
 	Sleep(50);
 	std::cout << "              /____/            /____/                           " << std::endl << std::endl;
 	Sleep(50);
-	std::cout << "Rename your DLL to: " << DLL_NAME << std::endl;
-	Sleep(4000);
 	_JUNK_BLOCK(jmp_label11)
+		if (std::filesystem::exists(DLL_NAME)) {
+			_JUNK_BLOCK(jmp_label12)
+				std::cout << "Founded DLL: " << DLL_NAME << std::endl;
+		}
+		else if (!std::filesystem::exists(DLL_NAME)) {
+			_JUNK_BLOCK(jmp_label13)
+				std::cout << "Can't find: " << DLL_NAME << std::endl;
+			_JUNK_BLOCK(jmp_label4)
+				system("pause");
+			_JUNK_BLOCK(jmp_label15)
+				return 0;
+		}
+	Sleep(2000);
+	_JUNK_BLOCK(jmp_label16)
 	DWORD dwProcess;
 	
-	_JUNK_BLOCK(jmp_label12)
+	_JUNK_BLOCK(jmp_label17)
 	char myDLL[MAX_PATH];
 	
-	_JUNK_BLOCK(jmp_label13)
+	_JUNK_BLOCK(jmp_label18)
 	GetFullPathName(DLL_NAME, MAX_PATH, myDLL, 0);
 	
-	_JUNK_BLOCK(jmp_label4)
+	_JUNK_BLOCK(jmp_label9)
 	dwProcess = Process("csgo.exe");
 	
-	_JUNK_BLOCK(jmp_label15)
+	_JUNK_BLOCK(jmp_label20)
 	pBut();
 	yAD();
 	mop();
@@ -106,7 +119,7 @@ int main()
 	AfUh();
 	HANDLE hProcess = OpenProcess(PROCESS_CREATE_THREAD | PROCESS_QUERY_INFORMATION | PROCESS_VM_READ | PROCESS_VM_WRITE | PROCESS_VM_OPERATION, FALSE, dwProcess);
 	
-	_JUNK_BLOCK(jmp_label16)
+	_JUNK_BLOCK(jmp_label21)
 	xtXP();
 	BNxW();
 	Wchh();
@@ -114,7 +127,7 @@ int main()
 	DbL();
 	LPVOID allocatedMem = VirtualAllocEx(hProcess, NULL, sizeof(myDLL), MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
 	
-	_JUNK_BLOCK(jmp_label17)
+	_JUNK_BLOCK(jmp_label22)
 	dmfc();
 	tXm();
 	dgm();
@@ -122,7 +135,7 @@ int main()
 	MYa();
 	WriteProcessMemory(hProcess, allocatedMem, myDLL, sizeof(myDLL), NULL);
 	
-	_JUNK_BLOCK(jmp_label18)
+	_JUNK_BLOCK(jmp_label23)
 	gHo();
 	iHj();
 	TNsp();
@@ -130,9 +143,9 @@ int main()
 	SieU();
 	CreateRemoteThread(hProcess, 0, 0, (LPTHREAD_START_ROUTINE)LoadLibrary, allocatedMem, 0, 0);
 	
-	_JUNK_BLOCK(jmp_label19)
+	_JUNK_BLOCK(jmp_label24)
 	CloseHandle(hProcess);
 	
-	_JUNK_BLOCK(jmp_label20)
+	_JUNK_BLOCK(jmp_label25)
 	return 0;
 }
