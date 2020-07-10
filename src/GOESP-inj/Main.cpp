@@ -66,15 +66,35 @@ void bypass(DWORD dwProcess)
 	// Restore original NtOpenFile from external process
 	//credits: Daniel Krupiñski(pozdro dla ciebie byczku <3)
 	_JUNK_BLOCK(jmp_label11)
+	GxnfYIXqsN30475098();
+	lxgLyiDMxF60791525();
+	YMMZUgZWSV91107952();
+	EKsmmVZfqq21424380();
+	JhubUfNEVF44114956();
 	HANDLE csgoProcessHandle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, dwProcess);
+
 	_JUNK_BLOCK(jmp_label12)
+	GtgcSpnLeG74431383();
+	IVJkqyrSxj4747811();
+	rBZPhpToJx35064238();
+	xVOvAMptDP65380665();
+	eDIAkDDoza95697092();
 	LPVOID ntOpenFile = GetProcAddress(LoadLibraryW(L"ntdll"), "NtOpenFile");
+
 	if (ntOpenFile) {
+
 		_JUNK_BLOCK(jmp_label13)
 		char originalBytes[5];
+
 		_JUNK_BLOCK(jmp_label4)
 		memcpy(originalBytes, ntOpenFile, 5);
+
 		_JUNK_BLOCK(jmp_label15)
+		zaktZBvVQk26013520();
+		JAudjRRTEs56329947();
+		HiYOlrNwxo86646374();
+		kbQXRYJJim16962802();
+		EVVQjuwOWC47279229();
 		WriteProcessMemory(csgoProcessHandle, ntOpenFile, originalBytes, 5, NULL);
 	}
 }
@@ -103,14 +123,14 @@ int main()
 	Sleep(50);
 	std::cout << "              /____/            /____/                           " << std::endl << std::endl;
 	Sleep(50);
-		if (std::filesystem::exists(DLL_NAME)) {
-				std::cout << "Founded DLL: " << DLL_NAME << std::endl;
-		}
-		else if (!std::filesystem::exists(DLL_NAME)) {
-				std::cout << "Can't find: " << DLL_NAME << std::endl;
-				system("pause");
-				return 0;
-		}
+	if (std::filesystem::exists(DLL_NAME)) {
+		std::cout << "Founded DLL: " << DLL_NAME << std::endl;
+	}
+	else if (!std::filesystem::exists(DLL_NAME)) {
+		std::cout << "Can't find: " << DLL_NAME << std::endl;
+		system("pause");
+		return 0;
+	}
 	Sleep(2000);
 	_JUNK_BLOCK(jmp_label16)
 	DWORD dwProcess;
@@ -125,6 +145,11 @@ int main()
 	dwProcess = Process("csgo.exe");
 
 	_JUNK_BLOCK(jmp_label20)
+	lsaGzEfEzY78892960();
+	dLCZfeAiQX9209388();
+	NVxUFKQgSN39525815();
+	DwobToDSsm69842243();
+	OUQCiwCFmh158671();
 	bypass(dwProcess);
 
 	_JUNK_BLOCK(jmp_label21)
