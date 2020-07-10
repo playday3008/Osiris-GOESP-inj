@@ -1,4 +1,4 @@
-#include <Windows.h>
+﻿#include <Windows.h>
 #include <TlHelp32.h>
 // Junk code to make injector undetected
 #include "JunkCode.h"
@@ -61,6 +61,24 @@ DWORD Process(char* ProcessName)
 //                                 /\___/                     /\___/                            
 //   
 
+void bypass(DWORD dwProcess)
+{
+	// Restore original NtOpenFile from external process
+	//credits: Daniel Krupiñski(pozdro dla ciebie byczku <3)
+	_JUNK_BLOCK(jmp_label11)
+		HANDLE csgoProcessHandle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, dwProcess);
+	_JUNK_BLOCK(jmp_label12)
+		LPVOID ntOpenFile = GetProcAddress(LoadLibraryW(L"ntdll"), "NtOpenFile");
+	if (ntOpenFile) {
+		_JUNK_BLOCK(jmp_label13)
+			char originalBytes[5];
+		_JUNK_BLOCK(jmp_label4)
+			memcpy(originalBytes, ntOpenFile, 5);
+		_JUNK_BLOCK(jmp_label15)
+			WriteProcessMemory(csgoProcessHandle, ntOpenFile, originalBytes, 5, NULL);
+	}
+}
+
 int main()
 {
 	std::cout << "   ____       _      _         __   __________  ___________ ____ " << std::endl;
@@ -85,17 +103,12 @@ int main()
 	Sleep(50);
 	std::cout << "              /____/            /____/                           " << std::endl << std::endl;
 	Sleep(50);
-	_JUNK_BLOCK(jmp_label11)
 	if (std::filesystem::exists(DLL_NAME)) {
-		_JUNK_BLOCK(jmp_label12)
 		std::cout << "Founded DLL: " << DLL_NAME << std::endl;
 	}
 	else if (!std::filesystem::exists(DLL_NAME)) {
-		_JUNK_BLOCK(jmp_label13)
 		std::cout << "Can't find: " << DLL_NAME << std::endl;
-		_JUNK_BLOCK(jmp_label4)
 		system("pause");
-		_JUNK_BLOCK(jmp_label15)
 		return 0;
 	}
 	Sleep(2000);
@@ -110,8 +123,11 @@ int main()
 	
 	_JUNK_BLOCK(jmp_label9)
 	dwProcess = Process("csgo.exe");
-	
+
 	_JUNK_BLOCK(jmp_label20)
+	bypass(dwProcess);
+	
+	_JUNK_BLOCK(jmp_label21)
 	pBut();
 	yAD();
 	mop();
@@ -119,7 +135,7 @@ int main()
 	AfUh();
 	HANDLE hProcess = OpenProcess(PROCESS_CREATE_THREAD | PROCESS_QUERY_INFORMATION | PROCESS_VM_READ | PROCESS_VM_WRITE | PROCESS_VM_OPERATION, FALSE, dwProcess);
 	
-	_JUNK_BLOCK(jmp_label21)
+	_JUNK_BLOCK(jmp_label22)
 	xtXP();
 	BNxW();
 	Wchh();
@@ -127,7 +143,7 @@ int main()
 	DbL();
 	LPVOID allocatedMem = VirtualAllocEx(hProcess, NULL, sizeof(myDLL), MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
 	
-	_JUNK_BLOCK(jmp_label22)
+	_JUNK_BLOCK(jmp_label23)
 	dmfc();
 	tXm();
 	dgm();
@@ -135,7 +151,7 @@ int main()
 	MYa();
 	WriteProcessMemory(hProcess, allocatedMem, myDLL, sizeof(myDLL), NULL);
 	
-	_JUNK_BLOCK(jmp_label23)
+	_JUNK_BLOCK(jmp_label24)
 	gHo();
 	iHj();
 	TNsp();
@@ -143,9 +159,9 @@ int main()
 	SieU();
 	CreateRemoteThread(hProcess, 0, 0, (LPTHREAD_START_ROUTINE)LoadLibrary, allocatedMem, 0, 0);
 	
-	_JUNK_BLOCK(jmp_label24)
+	_JUNK_BLOCK(jmp_label25)
 	CloseHandle(hProcess);
 	
-	_JUNK_BLOCK(jmp_label25)
+	_JUNK_BLOCK(jmp_label26)
 	return 0;
 }
