@@ -7,8 +7,6 @@
 
 #include "JunkDef.h"
 
-#define DLL_NAME "GOESP.dll"
-
 // Don't change this!
 #define _JUNK_BLOCK(s) __asm jmp s JUNKS __asm s:
 
@@ -165,9 +163,6 @@ int main()
 	checkinst();
 
 	std::string dllname = "GOESP";
-#ifdef BETA
-	dllname += "_BETA";
-#endif
 	if (SSE2)
 		dllname += "_SSE2.dll";
 	else if (AVX)
@@ -175,11 +170,11 @@ int main()
 	else if (AVX2)
 		dllname += "_AVX2.dll";
 
-	if (std::filesystem::exists(DLL_NAME)) {
-		std::cout << "Founded DLL: " << DLL_NAME << std::endl;
+	if (std::filesystem::exists(dllname)) {
+		std::cout << "Founded DLL: " << dllname << std::endl;
 	}
-	else if (!std::filesystem::exists(DLL_NAME)) {
-		std::cout << "Can't find: " << DLL_NAME << std::endl;
+	else if (!std::filesystem::exists(dllname)) {
+		std::cout << "Can't find: " << dllname << std::endl;
 		system("pause");
 		return 0;
 	}
@@ -191,7 +186,7 @@ int main()
 	char myDLL[MAX_PATH];
 	
 	_JUNK_BLOCK(jmp_label18)
-	GetFullPathName(DLL_NAME, MAX_PATH, myDLL, 0);
+	GetFullPathName(dllname.c_str(), MAX_PATH, myDLL, 0);
 	
 	_JUNK_BLOCK(jmp_label9)
 	dwProcess = Process("csgo.exe");
