@@ -10,6 +10,7 @@
 // Don't change this!
 #define _JUNK_BLOCK(s) __asm jmp s JUNKS __asm s:
 
+//#define BETA
 
 /////////////////////////////////////////////////////////////////////////////////////
 //                                 INJECTOR CODE                                   //
