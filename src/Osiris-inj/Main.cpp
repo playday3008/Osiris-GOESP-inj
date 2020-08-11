@@ -160,6 +160,8 @@ int main()
 	Sleep(50);
 	std::cout << "              /____/            /____/                           " << std::endl << std::endl;
 	Sleep(50);
+	std::cout << "Build: " __DATE__ ", " __TIME__ "" << std::endl << std::endl;
+	Sleep(50);
 
 	checkinst();
 
