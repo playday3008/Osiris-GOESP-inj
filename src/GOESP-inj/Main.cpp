@@ -10,6 +10,7 @@
 // Don't change this!
 #define _JUNK_BLOCK(s) __asm jmp s JUNKS __asm s:
 
+//#define BETA
 
 /////////////////////////////////////////////////////////////////////////////////////
 //                                 INJECTOR CODE                                   //
@@ -165,6 +166,9 @@ int main()
 	checkinst();
 
 	std::string dllname = "GOESP";
+#ifdef BETA
+	dllname += "_BETA";
+#endif
 	if (SSE2)
 		dllname += "_SSE2.dll";
 	else if (AVX)
