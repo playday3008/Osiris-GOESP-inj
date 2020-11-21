@@ -16,7 +16,7 @@
 //                                 INJECTOR CODE                                   //
 /////////////////////////////////////////////////////////////////////////////////////
 
-DWORD Process(char* ProcessName)
+DWORD Process(const char* ProcessName)
 {
 	_JUNK_BLOCK(jmp_label1)
 	HANDLE hPID = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
